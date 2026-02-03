@@ -1,27 +1,93 @@
-# embedded-iot-light-system
-
 # Embedded & IoT Light Monitoring System
 
-Hệ thống nhúng và IoT điều khiển đèn LED tự động dựa trên ánh sáng môi trường,
-sử dụng STM32 + TSL2561 + BLE HM-10 + Android Gateway + Firebase + Web Dashboard.
+This project implements a complete embedded and IoT system for automatic light control
+based on ambient light intensity.
 
-## Kiến trúc hệ thống
-- STM32: đo ánh sáng, điều khiển LED tự động
-- HM-10: truyền dữ liệu BLE
-- Android: Gateway BLE → Firebase
-- Firebase: Cloud Realtime Database
-- Web App: Giám sát realtime + biểu đồ
+The system is designed with a clear layered architecture, separating local control,
+communication, cloud services, and visualization.
 
-## Thư mục
-- stm32_firmware: source code STM32
-- android_gateway: ứng dụng Android Gateway
-- web_dashboard: giao diện web
-- docs: báo cáo và hình ảnh
+---
 
-## Cách chạy hệ thống (Tóm tắt)
+## System Overview
 
-1. Nạp firmware STM32 (thư mục stm32_firmware)
-2. Cấp nguồn cho STM32 + HM-10
-3. Mở Android Gateway → kết nối BLE
-4. Kiểm tra dữ liệu trên Firebase
-5. Mở web_dashboard/index.html để giám sát
+**Embedded Node**
+- MCU: STM32
+- Light Sensor: TSL2561 (I2C)
+- Actuator: LED
+- Communication: UART to BLE (HM-10)
+
+**Gateway**
+- Android smartphone
+- BLE connection to embedded node
+- WiFi connection to Firebase Realtime Database
+
+**Cloud & Visualization**
+- Firebase Realtime Database
+- Web dashboard (HTML + JavaScript + Chart.js)
+
+---
+
+## Key Features
+
+- Automatic LED control based on ambient light
+- Local autonomous operation without Internet
+- BLE data transmission to Android gateway
+- Real-time cloud synchronization
+- Web-based monitoring with real-time chart
+
+---
+
+## System Architecture
+
+STM32 (I2C, GPIO)
+→ BLE HM-10 (UART)
+→ Android Gateway (BLE → WiFi)
+→ Firebase Realtime Database
+→ Web Dashboard
+
+---
+
+## Project Structure
+
+embedded-iot-light-system/
+├── stm32_firmware/     # STM32 source code
+├── android_gateway/    # Android BLE to Firebase gateway
+├── web_dashboard/      # Web-based monitoring dashboard
+├── docs/               # Report and diagrams
+└── README.md
+
+---
+
+## How to Run
+
+1. Flash STM32 firmware from `stm32_firmware`
+2. Power the STM32 board and HM-10 module
+3. Launch Android gateway app and connect via BLE
+4. Verify data updates in Firebase Realtime Database
+5. Open `web_dashboard/index.html` to monitor data
+
+---
+
+## Technologies Used
+
+- STM32 HAL
+- I2C, UART, BLE
+- Android (Kotlin)
+- Firebase Realtime Database
+- HTML, JavaScript, Chart.js
+
+---
+
+## Author
+
+This project was developed as part of an Embedded Systems & IoT course
+and follows real-world IoT architecture principles.
+
+---
+
+## Interview description
+
+Embedded & IoT Light Monitoring System
+Developed an embedded system using STM32 and TSL2561 sensor to automatically control LED lighting based on ambient light.
+Implemented BLE communication via HM-10 and an Android gateway to transmit data to Firebase Realtime Database.
+Built a web dashboard for real-time monitoring and visualization using JavaScript and Chart.js.
