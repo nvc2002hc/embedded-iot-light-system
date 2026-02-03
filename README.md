@@ -80,8 +80,15 @@ embedded-iot-light-system/
 
 ## Author
 
-This project was developed as part of an Embedded Systems & IoT course
+This project was developed as part of an Embedded Systems & IoT course  
 and follows real-world IoT architecture principles.
+
+**Authors:**  
+- Nguyen Viet Cong  
+- Bui Minh Tri  
+
+University of Engineering and Technology (UET),  
+Vietnam National University, Hanoi (VNU)
 
 ---
 
